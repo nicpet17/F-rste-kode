@@ -5,12 +5,12 @@ const features = [
   {
     icon: <Users className="h-6 w-6" />,
     title: "4 Bedrooms",
-    description: "Sleeps up to 8 guests comfortably"
+    description: "Plus open living/dining area"
   },
   {
     icon: <Bath className="h-6 w-6" />,
     title: "3 Bathrooms",
-    description: "Modern, fresh and well-maintained"
+    description: "Modern and well-maintained"
   },
   {
     icon: <Sun className="h-6 w-6" />,
@@ -20,7 +20,7 @@ const features = [
   {
     icon: <Waves className="h-6 w-6" />,
     title: "Sea View",
-    description: "Terrace with partial sea views"
+    description: "Terrace with sea view"
   },
   {
     icon: <Wind className="h-6 w-6" />,
@@ -29,18 +29,18 @@ const features = [
   },
   {
     icon: <Wifi className="h-6 w-6" />,
-    title: "High-Speed Wi-Fi",
-    description: "Stay connected throughout"
+    title: "Walking Distance",
+    description: "To beach and promenade"
   },
   {
     icon: <Utensils className="h-6 w-6" />,
     title: "Full Kitchen",
-    description: "Induction cooktop & modern appliances"
+    description: "Induction cooktop & appliances"
   },
   {
     icon: <Home className="h-6 w-6" />,
     title: "170 sqm",
-    description: "Spacious renovated apartment"
+    description: "Renovated apartment"
   }
 ];
 
@@ -49,8 +49,8 @@ export function Features() {
     <section id="overview" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-primary uppercase tracking-widest text-sm font-semibold">Amenities</span>
-          <h2 className="text-4xl md:text-5xl font-serif mt-4 mb-6 text-foreground">Overview & Highlights</h2>
+          <span className="text-primary uppercase tracking-widest text-sm font-semibold">Overview & Highlights</span>
+          <h2 className="text-4xl md:text-5xl font-serif mt-4 mb-6 text-foreground">A Serene Retreat</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             A beautifully renovated apartment offering a serene retreat by the French Riviera. 
             Villa Norvic combines classic elegance with modern comfort — just a short walk 

@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -19,17 +19,20 @@ export function Footer() {
           {/* Contact */}
           <div className="space-y-4">
             <h4 className="text-lg font-serif text-white mb-4">Contact Host</h4>
-            <div className="flex items-center gap-3 text-white/70">
-              <Phone className="h-4 w-4" />
-              <span>+47 417 72 121 (Jarle Norman)</span>
-            </div>
-            <div className="flex items-center gap-3 text-white/70">
-              <Phone className="h-4 w-4" />
-              <span>+33 607 931 672 (WhatsApp)</span>
-            </div>
-            <div className="flex items-center gap-3 text-white/70">
-              <Mail className="h-4 w-4" />
-              <span>jarle.norman@ambolt.com</span>
+            <div className="flex flex-col gap-3 text-white/70">
+              <span className="font-medium text-white">Jarle Norman</span>
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4" />
+                <span>+47 417 72 121</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4" />
+                <span>+33 607 931 672 (WhatsApp)</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4" />
+                <span>jarle.norman@ambolt.com</span>
+              </div>
             </div>
           </div>
 

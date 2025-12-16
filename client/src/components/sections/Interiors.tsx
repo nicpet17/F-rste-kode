@@ -1,29 +1,38 @@
 import livingRoomImg from "@assets/generated_images/bright_open_plan_living_room_leading_to_garden.png";
 import bedroomImg from "@assets/generated_images/elegant_bedroom_with_double_bed.png";
 import kitchenImg from "@assets/generated_images/modern_kitchen_with_induction_cooktop.png";
+import gardenImg from "@assets/generated_images/lush_private_garden_with_barbecue_area.png";
+import bathroomImg from "@assets/generated_images/modern_clean_bathroom_with_fresh_towels.png";
 import { motion } from "framer-motion";
 
 const sections = [
   {
     id: "living",
     title: "Living Spaces",
-    description: "The open-plan living room is bright and spacious, leading directly to the garden terrace. Designed for relaxation and social gatherings, it seamlessly connects indoor comfort with outdoor Riviera living.",
+    description: "The open-plan living room is bright and spacious, leading directly to the garden terrace. The fully equipped kitchen offers modern appliances, an induction cooktop, and elegant finishes.",
     image: livingRoomImg,
     align: "right"
   },
   {
-    id: "kitchen",
-    title: "Gourmet Kitchen",
-    description: "The fully equipped kitchen offers modern appliances, an induction cooktop, and elegant finishes. Whether you're preparing a quick breakfast or a dinner party, you'll find everything you need.",
-    image: kitchenImg,
+    id: "outdoor",
+    title: "Outdoor & Surroundings",
+    description: "Enjoy your morning coffee on the sun-drenched terrace with a partial sea view. The private garden offers an ideal setting for relaxing or entertaining guests. The apartment is 170 sqm with a 200 sqm garden with a barbecue.",
+    image: gardenImg,
     align: "left"
   },
   {
     id: "bedrooms",
-    title: "Restful Bedrooms",
-    description: "Four beautifully appointed bedrooms, each with two single beds put together as doubles for flexibility. One room features a loft with a mattress suitable for children. The bathrooms are fresh, modern, and always pristine.",
+    title: "4 Bedrooms & 3 Bathrooms",
+    description: "Each bedroom has two single beds put together as doubles. One of the rooms has a loft with a mattress suitable for 1–2 children. The bathrooms are fresh and modern, always clean and well-maintained.",
     image: bedroomImg,
     align: "right"
+  },
+  {
+    id: "comfort",
+    title: "Comfort & Amenities",
+    description: "The apartment provides all essentials for a relaxing stay. Towels and bedsheets are available. Apple TV is provided for entertainment (log in with your own profile), and Wi-Fi is included. Laundry facilities are located on the first floor.",
+    image: bathroomImg,
+    align: "left"
   }
 ];
 

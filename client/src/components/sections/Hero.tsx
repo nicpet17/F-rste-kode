@@ -11,7 +11,7 @@ export function Hero() {
           alt="Villa Norvic Terrace"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/20" /> {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30" /> {/* Slightly darker overlay for better text contrast */}
       </div>
 
       {/* Content */}
@@ -22,7 +22,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="uppercase tracking-[0.3em] text-sm md:text-base font-medium mb-4"
         >
-          Cannes, French Riviera
+          Elegant Seaside Apartment
         </motion.span>
         
         <motion.h1
@@ -38,10 +38,17 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-lg md:text-xl font-light max-w-2xl mb-2 text-white/90"
+        >
+          Villa Victoria, No 5 Av. Dr. Raymond Picaud
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-lg md:text-xl font-light max-w-2xl mb-10 text-white/90"
         >
-          An elegant seaside retreat with sea view terrace and private garden.
-          Experience the charm of Cannes in luxury.
+          06400 Cannes
         </motion.p>
       </div>
       

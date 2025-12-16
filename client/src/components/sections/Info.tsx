@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Key, Wifi, Car, ShieldAlert } from "lucide-react";
+import { Key, Wifi, Car, ShieldAlert, Phone, Sparkles, Thermometer, Tv } from "lucide-react";
 
 export function Info() {
   return (
@@ -21,8 +21,8 @@ export function Info() {
             <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
               <ul className="list-disc space-y-2 pl-4">
                 <li>Keybox is located behind the air conditioner by the entrance door. Code will be provided by host.</li>
-                <li>Quiet hours begin from 11:00 p.m.</li>
-                <li>If there are any issues accessing the area gate upon arrival, ring the doorbell at "Norvic" – Jarle can open remotely.</li>
+                <li>Quiet hours from 11:00 p.m.</li>
+                <li>Upon arrival, if there are any issues accessing the area gate, ring the doorbell at "Norvic" – Jarle can open remotely via phone.</li>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -40,6 +40,36 @@ export function Info() {
             </AccordionContent>
           </AccordionItem>
 
+          <AccordionItem value="amenities">
+            <AccordionTrigger className="font-serif text-xl">
+              <div className="flex items-center gap-3">
+                <Sparkles className="h-5 w-5 text-primary" />
+                Amenities & Facilities
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
+              <p className="mb-4">The apartment is 170 sqm with a 200 sqm garden with a barbecue.</p>
+              
+              <h4 className="font-serif text-foreground mb-2 flex items-center gap-2">
+                <Thermometer className="h-4 w-4" /> Climate Control
+              </h4>
+              <p className="mb-4">Air-condition panels are available in all rooms. Please adjust temperature when leaving.</p>
+
+              <h4 className="font-serif text-foreground mb-2 flex items-center gap-2">
+                <Tv className="h-4 w-4" /> Entertainment
+              </h4>
+              <p className="mb-4">Apple TV is provided for entertainment (log in with your own profile).</p>
+
+              <h4 className="font-serif text-foreground mb-2">General</h4>
+              <ul className="list-disc space-y-2 pl-4">
+                <li>Towels and bedsheets are available.</li>
+                <li>Fully equipped kitchen.</li>
+                <li>Laundry room with washing machine (located on the first floor of the bathroom).</li>
+                <li>Vacuum cleaner, ironing board, and hair dryer provided.</li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+
           <AccordionItem value="parking">
             <AccordionTrigger className="font-serif text-xl">
               <div className="flex items-center gap-3">
@@ -49,10 +79,10 @@ export function Info() {
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
               <ul className="list-disc space-y-2 pl-4">
-                <li>One parking spot is available inside the entrance barrier.</li>
-                <li>Free parking is available along Chemin de la Nadine (approx. 100 m).</li>
-                <li>Walking out: use door chip or code 2106a.</li>
-                <li>Beach gate: use door chip.</li>
+                <li>One parking spot inside the entrance barrier.</li>
+                <li>Free parking available along Chemin de la Nadine (approx. 100 m).</li>
+                <li>Walking out: use door chip or code 2106a</li>
+                <li>Beach gate: use door chip</li>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -79,6 +109,21 @@ export function Info() {
                   <span className="font-bold block">15</span> Ambulance
                 </div>
               </div>
+            </AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="host">
+            <AccordionTrigger className="font-serif text-xl">
+              <div className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-primary" />
+                Host Contact
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
+              <p className="mb-2 font-semibold">Jarle Norman</p>
+              <p>Phone: +47 417 72 121</p>
+              <p>Phone: +33 607 931 672 (also WhatsApp)</p>
+              <p>Email: jarle.norman@ambolt.com</p>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
