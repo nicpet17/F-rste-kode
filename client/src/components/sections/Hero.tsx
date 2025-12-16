@@ -1,0 +1,60 @@
+import { motion } from "framer-motion";
+import heroImage from "@assets/generated_images/villa_terrace_overlooking_the_mediterranean_sea.png";
+
+export function Hero() {
+  return (
+    <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt="Villa Norvic Terrace"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/20" /> {/* Overlay for text readability */}
+      </div>
+
+      {/* Content */}
+      <div className="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white z-10 pt-20">
+        <motion.span
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="uppercase tracking-[0.3em] text-sm md:text-base font-medium mb-4"
+        >
+          Cannes, French Riviera
+        </motion.span>
+        
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-serif mb-6 leading-tight"
+        >
+          Villa Norvic
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-lg md:text-xl font-light max-w-2xl mb-10 text-white/90"
+        >
+          An elegant seaside retreat with sea view terrace and private garden.
+          Experience the charm of Cannes in luxury.
+        </motion.p>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white flex flex-col items-center gap-2"
+      >
+        <span className="text-xs uppercase tracking-widest">Explore</span>
+        <div className="w-[1px] h-12 bg-white/50" />
+      </motion.div>
+    </section>
+  );
+}

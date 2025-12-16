@@ -1,0 +1,88 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Key, Wifi, Car, ShieldAlert } from "lucide-react";
+
+export function Info() {
+  return (
+    <section id="info" className="py-24 bg-white">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <div className="text-center mb-16">
+          <span className="text-primary uppercase tracking-widest text-sm font-semibold">Guest Guide</span>
+          <h2 className="text-4xl font-serif mt-4 mb-6 text-foreground">Practical Information</h2>
+        </div>
+
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="check-in">
+            <AccordionTrigger className="font-serif text-xl">
+              <div className="flex items-center gap-3">
+                <Key className="h-5 w-5 text-primary" />
+                Arrival & Check-in
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
+              <ul className="list-disc space-y-2 pl-4">
+                <li>Keybox is located behind the air conditioner by the entrance door. Code will be provided by host.</li>
+                <li>Quiet hours begin from 11:00 p.m.</li>
+                <li>If there are any issues accessing the area gate upon arrival, ring the doorbell at "Norvic" – Jarle can open remotely.</li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="wifi">
+            <AccordionTrigger className="font-serif text-xl">
+              <div className="flex items-center gap-3">
+                <Wifi className="h-5 w-5 text-primary" />
+                Wi-Fi Network
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
+              <p className="mb-2"><span className="font-semibold">Network:</span> tom&jarle2</p>
+              <p><span className="font-semibold">Password:</span> Pensum100</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="parking">
+            <AccordionTrigger className="font-serif text-xl">
+              <div className="flex items-center gap-3">
+                <Car className="h-5 w-5 text-primary" />
+                Parking & Gate Access
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
+              <ul className="list-disc space-y-2 pl-4">
+                <li>One parking spot is available inside the entrance barrier.</li>
+                <li>Free parking is available along Chemin de la Nadine (approx. 100 m).</li>
+                <li>Walking out: use door chip or code 2106a.</li>
+                <li>Beach gate: use door chip.</li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="emergency">
+            <AccordionTrigger className="font-serif text-xl">
+              <div className="flex items-center gap-3">
+                <ShieldAlert className="h-5 w-5 text-primary" />
+                Emergency Contacts
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <span className="font-bold block">112</span> General EU Emergency
+                </div>
+                <div>
+                  <span className="font-bold block">18</span> Fire & Rescue
+                </div>
+                <div>
+                  <span className="font-bold block">17</span> Police
+                </div>
+                <div>
+                  <span className="font-bold block">15</span> Ambulance
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </section>
+  );
+}
