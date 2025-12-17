@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Info as InfoSection } from "@/components/sections/Info";
-import { Recommendations } from "@/components/sections/Recommendations";
+import { DetailedGuide } from "@/components/sections/DetailedGuide";
 import { Footer } from "@/components/sections/Footer";
 
 export default function InfoPage() {
@@ -12,13 +12,13 @@ export default function InfoPage() {
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Info & Guide</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know for your stay, plus our curated guide to the best of Cannes.
+            Everything you need to know for your stay, plus our detailed guide to Cannes' best spots.
           </p>
         </div>
       </div>
 
       <InfoSection />
-      <Recommendations />
+      <DetailedGuide />
       
       <Footer />
     </div>
