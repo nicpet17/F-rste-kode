@@ -1,7 +1,7 @@
-import livingRoomImg from "@assets/Bilde_1_leilighet_1765992903087.PNG";
-import bedroomImg from "@assets/Bilde_7_leilighet_1765992903087.PNG";
-import gardenImg from "@assets/Bilde_2_leilighet_1765992903087.PNG";
-import bathroomImg from "@assets/Bilde_6_leilighet_1765992903087.PNG";
+import livingRoomImg from "@/assets/images/Bilde_1_leilighet_1765992903087.PNG";
+import bedroomImg from "@/assets/images/Bilde_7_leilighet_1765992903087.PNG";
+import gardenImg from "@/assets/images/Bilde_2_leilighet_1765992903087.PNG";
+import bathroomImg from "@/assets/images/Bilde_6_leilighet_1765992903087.PNG";
 import { motion } from "framer-motion";
 
 const sections = [

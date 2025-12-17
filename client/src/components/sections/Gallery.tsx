@@ -1,11 +1,11 @@
-import img1 from "@assets/Bilde_1_leilighet_1765992903087.PNG";
-import img2 from "@assets/Bilde_2_leilighet_1765992903087.PNG";
-import img3 from "@assets/Bilde_3_leilighet_1765992903087.PNG";
-import img4 from "@assets/Bilde_4_leilighet_1765992903087.PNG";
-import img5 from "@assets/Bilde_5_leilighet_1765992903087.PNG";
-import img6 from "@assets/Bilde_6_leilighet_1765992903087.PNG";
-import img7 from "@assets/Bilde_7_leilighet_1765992903087.PNG";
-import img8 from "@assets/Bilde_8_leilighet_1765992903087.PNG";
+import img1 from "@/assets/images/Bilde_1_leilighet_1765992903087.PNG";
+import img2 from "@/assets/images/Bilde_2_leilighet_1765992903087.PNG";
+import img3 from "@/assets/images/Bilde_3_leilighet_1765992903087.PNG";
+import img4 from "@/assets/images/Bilde_4_leilighet_1765992903087.PNG";
+import img5 from "@/assets/images/Bilde_5_leilighet_1765992903087.PNG";
+import img6 from "@/assets/images/Bilde_6_leilighet_1765992903087.PNG";
+import img7 from "@/assets/images/Bilde_7_leilighet_1765992903087.PNG";
+import img8 from "@/assets/images/Bilde_8_leilighet_1765992903087.PNG";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 

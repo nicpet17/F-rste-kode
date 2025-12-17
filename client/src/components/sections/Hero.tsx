@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "@assets/Bilde_9_leilighet_1765992903087.PNG";
+import heroImage from "@/assets/images/Bilde_9_leilighet_1765992903087.PNG";
 
 export function Hero() {
   return (
