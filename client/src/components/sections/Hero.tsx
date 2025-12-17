@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "@assets/generated_images/villa_terrace_overlooking_the_mediterranean_sea.png";
+import heroImage from "@assets/Bilde_9_leilighet_1765992903087.PNG";
 
 export function Hero() {
   return (
@@ -11,7 +11,7 @@ export function Hero() {
           alt="Villa Norvic Terrace"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" /> {/* Slightly darker overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/20" /> {/* Reduced overlay opacity to show off the real image quality */}
       </div>
 
       {/* Content */}
@@ -20,7 +20,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="uppercase tracking-[0.3em] text-sm md:text-base font-medium mb-4"
+          className="uppercase tracking-[0.3em] text-sm md:text-base font-medium mb-4 shadow-black/50 text-shadow-sm"
         >
           Elegant Seaside Apartment
         </motion.span>
@@ -29,7 +29,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif mb-6 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-serif mb-6 leading-tight drop-shadow-md"
         >
           Villa Norvic
         </motion.h1>
@@ -38,7 +38,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl font-light max-w-2xl mb-2 text-white/90"
+          className="text-lg md:text-xl font-light max-w-2xl mb-2 text-white/95 drop-shadow-sm"
         >
           Villa Victoria, No 5 Av. Dr. Raymond Picaud
         </motion.p>
@@ -46,7 +46,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-lg md:text-xl font-light max-w-2xl mb-10 text-white/90"
+          className="text-lg md:text-xl font-light max-w-2xl mb-10 text-white/95 drop-shadow-sm"
         >
           06400 Cannes
         </motion.p>
@@ -59,7 +59,7 @@ export function Hero() {
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white flex flex-col items-center gap-2"
       >
-        <span className="text-xs uppercase tracking-widest">Explore</span>
+        <span className="text-xs uppercase tracking-widest drop-shadow-sm">Explore</span>
         <div className="w-[1px] h-12 bg-white/50" />
       </motion.div>
     </section>

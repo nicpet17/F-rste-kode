@@ -1,8 +1,7 @@
-import livingRoomImg from "@assets/generated_images/bright_open_plan_living_room_leading_to_garden.png";
-import bedroomImg from "@assets/generated_images/elegant_bedroom_with_double_bed.png";
-import kitchenImg from "@assets/generated_images/modern_kitchen_with_induction_cooktop.png";
-import gardenImg from "@assets/generated_images/lush_private_garden_with_barbecue_area.png";
-import bathroomImg from "@assets/generated_images/modern_clean_bathroom_with_fresh_towels.png";
+import livingRoomImg from "@assets/Bilde_1_leilighet_1765992903087.PNG";
+import bedroomImg from "@assets/Bilde_7_leilighet_1765992903087.PNG";
+import gardenImg from "@assets/Bilde_2_leilighet_1765992903087.PNG";
+import bathroomImg from "@assets/Bilde_6_leilighet_1765992903087.PNG";
 import { motion } from "framer-motion";
 
 const sections = [
