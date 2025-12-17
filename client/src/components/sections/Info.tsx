@@ -35,8 +35,7 @@ export function Info() {
               </div>
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
-              <p className="mb-2"><span className="font-semibold">Network:</span> tom&jarle2</p>
-              <p><span className="font-semibold">Password:</span> Pensum100</p>
+              <p className="mb-2">Wi-Fi details will be provided by the host upon arrival.</p>
             </AccordionContent>
           </AccordionItem>
 
@@ -81,7 +80,7 @@ export function Info() {
               <ul className="list-disc space-y-2 pl-4">
                 <li>One parking spot inside the entrance barrier.</li>
                 <li>Free parking available along Chemin de la Nadine (approx. 100 m).</li>
-                <li>Walking out: use door chip or code 2106a</li>
+                <li>Walking out: use door chip (code available from host)</li>
                 <li>Beach gate: use door chip</li>
               </ul>
             </AccordionContent>

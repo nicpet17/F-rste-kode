@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Interiors as InteriorsSection } from "@/components/sections/Interiors";
+import { VideoTour } from "@/components/sections/VideoTour";
 import { Footer } from "@/components/sections/Footer";
 
 export default function InteriorsPage() {
@@ -17,6 +18,7 @@ export default function InteriorsPage() {
       </div>
 
       <InteriorsSection />
+      <VideoTour />
       
       <Footer />
     </div>
