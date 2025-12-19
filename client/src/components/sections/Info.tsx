@@ -20,7 +20,7 @@ export function Info() {
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground text-lg leading-relaxed pl-8">
               <ul className="list-disc space-y-2 pl-4">
-                <li>Keybox is located behind the air conditioner by the entrance door. Code will be provided by host.</li>
+                <li>Keybox instructions and code will be provided directly by the host ahead of your stay.</li>
                 <li>Quiet hours from 11:00 p.m.</li>
                 <li>Upon arrival, if there are any issues accessing the area gate, ring the doorbell at "Norvic" – Jarle can open remotely via phone.</li>
               </ul>

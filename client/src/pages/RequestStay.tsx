@@ -7,7 +7,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -32,6 +32,11 @@ export default function RequestStayPage() {
     from: undefined,
     to: undefined,
   });
+  const calendarEmbedUrl = useMemo(
+    () =>
+      "https://calendar.google.com/calendar/embed?src=c83272d267c67aecc37c1de9cfa131c2e679941462fed8aa44edc1f4e65a7514%40group.calendar.google.com&ctz=Europe%2FOslo&mode=MONTH&showTitle=0&showTz=0&bgcolor=%23ffffff",
+    [],
+  );
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,6 +69,32 @@ export default function RequestStayPage() {
           <p className="text-white/80 max-w-2xl mx-auto">
             Interested in staying at Villa Norvic? Send us a request and we'll check availability for you.
           </p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-16 max-w-5xl">
+        <div className="grid gap-6 lg:grid-cols-[3fr,2fr]">
+          <div className="rounded-3xl bg-white shadow-lg p-4">
+            <h2 className="text-2xl font-serif mb-3 text-primary">Availability Calendar</h2>
+            <p className="text-muted-foreground mb-4">
+              The calendar is manually updated by the host. Please verify that your preferred dates are free before submitting your request.
+            </p>
+            <div className="aspect-video w-full overflow-hidden rounded-2xl border bg-muted">
+              <iframe
+                src={calendarEmbedUrl}
+                className="h-full w-full border-0"
+                title="Villa Norvic booking calendar"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-white shadow-lg p-6">
+            <h3 className="text-xl font-serif text-primary mb-2">Need assistance?</h3>
+            <p className="text-muted-foreground">
+              We are happy to help with details about the stay, transport, or special requests. Leave a note in the form and we will respond as soon as possible.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -128,44 +159,53 @@ export default function RequestStayPage() {
               />
             </div>
 
-            <FormItem className="flex flex-col">
-              <FormLabel>Desired Dates</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant={"outline"}
-                    className={`w-full justify-start text-left font-normal ${!dateRange.from && "text-muted-foreground"}`}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {dateRange.from ? (
-                      dateRange.to ? (
-                        <>
-                          {format(dateRange.from, "LLL dd, y")} -{" "}
-                          {format(dateRange.to, "LLL dd, y")}
-                        </>
-                      ) : (
-                        format(dateRange.from, "LLL dd, y")
-                      )
-                    ) : (
-                      <span>Pick your dates</span>
-                    )}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    initialFocus
-                    mode="range"
-                    defaultMonth={dateRange.from}
-                    selected={dateRange as any}
-                    onSelect={(range: any) => {
-                      setDateRange(range);
-                      // In a real app we'd link this to form field
-                    }}
-                    numberOfMonths={2}
-                  />
-                </PopoverContent>
-              </Popover>
-            </FormItem>
+            <FormField
+              control={form.control}
+              name="dates"
+              render={({ field }) => (
+                <FormItem className="flex flex-col">
+                  <FormLabel>Desired Dates</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={`w-full justify-start text-left font-normal ${!dateRange.from && "text-muted-foreground"}`}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {dateRange.from ? (
+                            dateRange.to ? (
+                              <>
+                                {format(dateRange.from, "LLL dd, y")} -{" "}
+                                {format(dateRange.to, "LLL dd, y")}
+                              </>
+                            ) : (
+                              format(dateRange.from, "LLL dd, y")
+                            )
+                          ) : (
+                            <span>Pick your dates</span>
+                          )}
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        initialFocus
+                        mode="range"
+                        defaultMonth={dateRange.from}
+                        selected={dateRange as any}
+                        onSelect={(range: any) => {
+                          setDateRange(range);
+                          field.onChange(range);
+                        }}
+                        numberOfMonths={2}
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}
