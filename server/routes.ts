@@ -1,6 +1,6 @@
 import type { Express, Request, Response } from "express";
 import { type Server } from "http";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { z } from "zod";
 
 export async function registerRoutes(
@@ -26,34 +26,10 @@ export async function registerRoutes(
       .optional(),
   });
 
-  const emailIsConfigured =
-    Boolean(process.env.GMAIL_USER) &&
-    Boolean(process.env.GMAIL_APP_PASSWORD) &&
-    Boolean(process.env.REQUEST_STAY_EMAIL_TO || process.env.GMAIL_USER);
-
-  let transporter: nodemailer.Transporter | null = null;
-
-  function getTransporter() {
-    if (!emailIsConfigured) {
-      return null;
-    }
-
-    if (!transporter) {
-      if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-        return null;
-      }
-
-      transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.GMAIL_USER,
-          pass: process.env.GMAIL_APP_PASSWORD,
-        },
-      });
-    }
-
-    return transporter;
-  }
+  const resendClient =
+    process.env.RESEND_API_KEY !== undefined
+      ? new Resend(process.env.RESEND_API_KEY)
+      : null;
 
   function formatDate(value?: string) {
     if (!value) return "Not specified";
@@ -70,15 +46,19 @@ export async function registerRoutes(
   async function sendRequestStayEmail(
     data: z.infer<typeof requestStaySchema>,
   ): Promise<void> {
-    const mailer = getTransporter();
-    if (!mailer) {
+    if (!resendClient) {
       throw new Error("Email transport is not configured");
     }
 
-    const recipient =
-      process.env.REQUEST_STAY_EMAIL_TO || process.env.GMAIL_USER!;
-    const fromAddress =
-      process.env.REQUEST_STAY_EMAIL_FROM || process.env.GMAIL_USER!;
+    const recipient = process.env.REQUEST_STAY_EMAIL_TO;
+    if (!recipient) {
+      throw new Error("Recipient email is not configured");
+    }
+
+    const fromAddress = process.env.REQUEST_STAY_EMAIL_FROM;
+    if (!fromAddress) {
+      throw new Error("Sender email is not configured");
+    }
 
     const dateSummary = data.dates?.from
       ? data.dates.to
@@ -99,19 +79,19 @@ export async function registerRoutes(
       data.message || "No additional message.",
     ].join("\n");
 
-    const html = `
-      <p><strong>Name:</strong> ${data.name}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Phone:</strong> ${data.phone || "Not provided"}</p>
-      <p><strong>Guests:</strong> ${data.guests}</p>
-      <p><strong>Dates:</strong> ${dateSummary}</p>
-      <p><strong>Message:</strong><br/>${data.message || "No additional message."}</p>
-    `;
+    const html = [
+      `<p><strong>Name:</strong> ${data.name}</p>`,
+      `<p><strong>Email:</strong> ${data.email}</p>`,
+      `<p><strong>Phone:</strong> ${data.phone || "Not provided"}</p>`,
+      `<p><strong>Guests:</strong> ${data.guests}</p>`,
+      `<p><strong>Dates:</strong> ${dateSummary}</p>`,
+      `<p><strong>Message:</strong><br/>${data.message || "No additional message."}</p>`,
+    ].join("");
 
-    await mailer.sendMail({
+    await resendClient.emails.send({
       from: fromAddress,
       to: recipient,
-      replyTo: data.email,
+      reply_to: data.email,
       subject: `New Villa Norvic stay request from ${data.name}`,
       text,
       html,
