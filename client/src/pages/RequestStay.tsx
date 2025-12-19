@@ -48,15 +48,54 @@ export default function RequestStayPage() {
       message: "",
     },
   });
+  const isSubmitting = form.formState.isSubmitting;
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Request Sent",
-      description: "We have received your request and will get back to you shortly.",
-    });
-    form.reset();
-    setDateRange({ from: undefined, to: undefined });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const payload = {
+        ...values,
+        dates: values.dates
+          ? {
+              from: values.dates.from?.toISOString(),
+              to: values.dates.to?.toISOString(),
+            }
+          : undefined,
+      };
+
+      const res = await fetch("/api/request-stay", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const errorBody = await res.json().catch(() => ({}));
+        const message =
+          typeof errorBody?.message === "string"
+            ? errorBody.message
+            : "Could not send request. Please try again.";
+        throw new Error(message);
+      }
+
+      toast({
+        title: "Request sent",
+        description: "Thank you! We will get back to you as soon as possible.",
+      });
+      form.reset();
+      setDateRange({ from: undefined, to: undefined });
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.";
+      toast({
+        title: "Unable to send request",
+        description: message,
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -225,8 +264,12 @@ export default function RequestStayPage() {
               )}
             />
 
-            <Button type="submit" className="w-full md:w-auto bg-primary text-primary-foreground font-serif px-8 py-6 text-lg">
-              Send Request
+            <Button
+              type="submit"
+              className="w-full md:w-auto bg-primary text-primary-foreground font-serif px-8 py-6 text-lg"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Request"}
             </Button>
           </form>
         </Form>
